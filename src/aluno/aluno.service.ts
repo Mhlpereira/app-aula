@@ -17,7 +17,10 @@ export class AlunoService {
 
     async createAluno(alunoDTO: AlunoDTO): Promise<AlunoDTO> {
         try{
-            const createAluno
+            const createdAluno = await this.alunoRepository.save(AlunoDTO);
+            return createdAluno;
+        }catch(e){
+            console.error(e);
         }
     }
 }

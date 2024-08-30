@@ -21,8 +21,8 @@ import { ProfessorModule } from './professor/professor.module';
       entities: [__dirname + '/../**/*.entity{.ts,.js}'],
       migrations: [__dirname + '/db/migrations/*.entity{.ts,.js}'],
     }),
-      AlunoModule,
-      ProfessorModule
+    AlunoModule,
+    ProfessorModule,
   ],
   controllers: [AppController],
   providers: [AppService],
