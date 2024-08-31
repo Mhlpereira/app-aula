@@ -6,21 +6,23 @@ import { AlunoDTO } from './dto/aluno.dto';
 
 @Injectable()
 export class AlunoService {
-    constructor(
-        @InjectRepository(Aluno)
-        private readonly alunoRepository: Repository<Aluno>
-    ) {}
+  constructor(
+    @InjectRepository(Aluno)
+    private readonly alunoRepository: Repository<Aluno>,
+  ) {}
 
-    async findAllUser(): Promise<Aluno[]>{
-        return this.alunoRepository.find();
-    }
+  async findAllUser(): Promise<Aluno[]> {
+    const alunos = await this.alunoRepository.find();
 
-    async createAluno(alunoDTO: AlunoDTO): Promise<AlunoDTO> {
-        try{
-            const createdAluno = await this.alunoRepository.save(AlunoDTO);
-            return createdAluno;
-        }catch(e){
-            console.error(e);
-        }
+    return alunos;
+  }
+
+  async createAluno(alunoDTO: AlunoDTO): Promise<AlunoDTO> {
+    try {
+      const createdAluno = await this.alunoRepository.save(alunoDTO);
+      return createdAluno;
+    } catch (e) {
+      console.error(e);
     }
+  }
 }

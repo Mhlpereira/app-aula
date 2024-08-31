@@ -1,7 +1,5 @@
 ## App de Aula
 
-
-
 ## Tech Stack
 
 -NestJs
@@ -9,6 +7,6 @@
 -PostgresSql
 -Docker
 
-## Arquitetura 
+## Arquitetura
 
 Mvc
