@@ -7,9 +7,9 @@ import { AlunoDTO } from './dto/aluno.dto';
 export class AlunoController {
   constructor(private readonly alunoServices: AlunoService) {}
 
-  @Get(':id')
-  async findAllUsers(@Res() response: Response) {
-    const alunos = await this.alunoServices.findAllUser();
+  @Get()
+  async findAllAlunos(@Res() response: Response) {
+    const alunos = await this.alunoServices.findAllAlunos();
     return response.status(200).json(alunos);
   }
 

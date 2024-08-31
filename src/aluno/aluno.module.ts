@@ -5,8 +5,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Aluno } from './aluno.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Aluno])],
-  controllers: [AlunoController],
-  providers: [AlunoService],
+    imports: [TypeOrmModule.forFeature([Aluno])],
+    controllers: [AlunoController],
+    providers: [AlunoService],
 })
 export class AlunoModule {}
