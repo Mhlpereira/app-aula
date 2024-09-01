@@ -2,10 +2,10 @@
 
 ## Tech Stack
 
--NestJs
--TypeOrm
--PostgresSql
--Docker
+- NestJs
+- TypeOrm
+- PostgresSql
+- Docker
 
 ## Arquitetura
 

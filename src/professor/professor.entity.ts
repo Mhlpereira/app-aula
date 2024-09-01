@@ -20,6 +20,9 @@ export class Professor {
     @Column({ name: 'name', nullable: false })
     name: string;
 
+    @Column({ name: 'CPF', nullable: false, unique: true })
+    cpf: string;
+
     @Column({ name: 'email', nullable: false, unique: true })
     email: string;
 

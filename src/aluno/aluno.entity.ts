@@ -22,6 +22,9 @@ export class Aluno {
     @Column({ name: 'email', nullable: false, unique: true })
     email: string;
 
+    @Column({ name: 'CPF', unique: true })
+    cpf: string;
+
     @Column({ name: 'password', nullable: false })
     @Exclude()
     password: string;

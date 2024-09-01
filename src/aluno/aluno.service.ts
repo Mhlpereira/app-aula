@@ -6,7 +6,6 @@ import { AlunoDTO } from './dto/aluno.dto';
 
 @Injectable()
 export class AlunoService {
-  [x: string]: any;
   constructor(
     @InjectRepository(Aluno)
     private readonly alunoRepository: Repository<Aluno>,
@@ -27,4 +26,6 @@ export class AlunoService {
       console.error(e);
     }
   }
+
+  async updateAluno(id: string);
 }
