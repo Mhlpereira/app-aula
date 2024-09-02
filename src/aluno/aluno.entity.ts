@@ -14,7 +14,7 @@ import {
 @Entity({ name: 'aluno' })
 export class Aluno {
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    alunoId: string;
 
     @Column({ name: 'name', nullable: false })
     name: string;
@@ -41,11 +41,14 @@ export class Aluno {
 
     @ManyToMany(() => Aula, (aula) => aula.alunos)
     @JoinTable()
-    aula: Promise<Aula[]>;
+    aula: Aula[];
+    //ver a possibilidade de colocar o eager component para melhor perfomance
 
     @CreateDateColumn({ name: 'created_at' })
     createdAt: string;
 
     @UpdateDateColumn({ name: 'update_at' })
     updateAt: string;
+
+    //add presença
 }

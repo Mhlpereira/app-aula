@@ -15,7 +15,7 @@ import {
 @Entity({ name: 'professor' })
 export class Professor {
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    professorId: string;
 
     @Column({ name: 'name', nullable: false })
     name: string;
@@ -41,7 +41,8 @@ export class Professor {
     modalidades: Modalidade[];
 
     @OneToMany(() => Aula, (aula) => aula.professor)
-    aulas: Promise<Aula[]>;
+    aulas: Aula[];
+    //em um futuro se ficar grande creio que deve usar o lazy component do type
 
     @CreateDateColumn({ name: 'created_at' })
     createdAt: string;

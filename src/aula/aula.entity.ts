@@ -13,16 +13,16 @@ import {
 @Entity({ name: 'aula' })
 export class Aula {
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    aulaId: string;
 
     @ManyToOne(() => Modalidade, (modalidade) => modalidade.aulas)
-    modalidade: Promise<Modalidade>;
+    modalidade: Modalidade;
 
     @ManyToOne(() => Professor, (professor) => professor.aulas)
-    professor: Promise<Professor>;
+    professor: Professor;
 
     @ManyToMany(() => Aluno, (alunos) => alunos.aula)
-    alunos: Promise<Aluno[]>;
+    alunos?: Aluno[];
 
     @Column({ name: 'Confirmada?' })
     confirmada: boolean;

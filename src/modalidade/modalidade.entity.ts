@@ -14,7 +14,9 @@ import {
 
 @Entity({ name: 'modalidade' })
 export class Modalidade {
-    @PrimaryColumn()
+    @PrimaryColumn('uuid')
+    modalidadeId: string;
+
     @Column({ name: 'modalidade', nullable: false })
     modalidade: string;
 
@@ -27,7 +29,7 @@ export class Modalidade {
     alunos: Aluno[];
 
     @OneToMany(() => Aula, (aula) => aula.modalidade)
-    aulas: Promise<Aula[]>;
+    aulas: Aula;
 
     @CreateDateColumn({ name: 'created_at' })
     createdAt: string;
