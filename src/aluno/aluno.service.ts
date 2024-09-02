@@ -3,6 +3,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Aluno } from './aluno.entity';
 import { Repository } from 'typeorm';
 import { AlunoDTO } from './dto/aluno.dto';
+import { AtualizaAlunoDTO } from './dto/atualizaAluno.dto';
+import { AtualizaPasswordAlunoDTO } from './dto/atulizaPasswordAluno.dto';
 
 @Injectable()
 export class AlunoService {
@@ -27,5 +29,41 @@ export class AlunoService {
     }
   }
 
-  async updateAluno(id: string);
+  async updateDadosAluno(
+    id: string,
+    atualizaAlunoDTO: AtualizaAlunoDTO,
+  ): Promise<AtualizaAlunoDTO> {
+    try {
+      const aluno = await this.alunoRepository.findOneBy({ id });
+
+      if (!aluno) {
+        throw new Error('Aluno não encontrado!');
+      }
+
+      Object.assign(aluno, atualizaAlunoDTO);
+
+      return this.alunoRepository.save(aluno);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async updatePasswordAluno(
+    id: string,
+    atualizaAlunoDTO: AtualizaPasswordAlunoDTO,
+  ): Promise<AtualizaPasswordAlunoDTO> {
+    try {
+      const aluno = await this.alunoRepository.findOneBy({ id });
+
+      if (!aluno) {
+        throw new Error('Aluno não encontrado!');
+      }
+
+      Object.assign(aluno, atualizaAlunoDTO);
+
+      return this.alunoRepository.save(aluno);
+    } catch (e) {
+      console.error(e);
+    }
+  }
 }

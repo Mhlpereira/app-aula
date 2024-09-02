@@ -1,16 +1,12 @@
-import { IsString, Matches } from 'class-validator';
-import { Match } from 'src/validacao/match.decorator';
+import { IsNumber, IsString } from 'class-validator';
 
 export class AtualizaAlunoDTO {
     @IsString()
     name?: string;
 
-    @Matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$/, {
-        message:
-            'Senha precisa de uma letra minúscula, uma maiúscula, um número  e um caractere especial!',
-    })
-    password?: string;
+    @IsNumber()
+    telefone?: number;
 
-    @Match('password', { message: 'A senha não corresponde!' })
-    confpassword?: string;
+    @IsString()
+    endereco?: string;
 }
